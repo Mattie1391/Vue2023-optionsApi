@@ -25,6 +25,7 @@
 </head>
 
 <body>
+  <!-- Vue 應用程式的掛載點，id 為 'app' 的元素 -->
   <div id="app">
     <div class="container">
       <div class="row py-3">
@@ -34,34 +35,25 @@
             <thead>
               <tr>
                 <th width="150">產品名稱</th>
-                <th width="120">
-                  原價
-                </th>
-                <th width="120">
-                  售價
-                </th>
-                <th width="150">
-                  是否啟用
-                </th>
-                <th width="120">
-                  查看細節
-                </th>
+                <th width="120">原價</th>
+                <th width="120">售價</th>
+                <th width="150">是否啟用</th>
+                <th width="120">查看細節</th>
               </tr>
             </thead>
             <tbody>
+              <!-- 使用 v-for 指令動態生成表格的一行，每一行對應到 products 陣列中的一個商品 -->
               <tr v-for="(item) in products" v-bind:key="item.id">
                 <td width="150">{{ item.title }}</td>
-                <td width="120">
-                  {{ item.origin_price }}
-                </td>
-                <td width="120">
-                  {{ item.price }}
-                </td>
+                <td width="120">{{ item.origin_price }}</td>
+                <td width="120">{{ item.price }}</td>
                 <td width="150">
+                  <!-- 使用 v-if 和 v-else 進行條件渲染，如果商品的 is_enabled 屬性為true，則顯示啟用 -->
                   <span v-if="item.is_enabled" class="text-success">啟用</span>
                   <span v-else>未啟用</span>
                 </td>
                 <td width="120">
+                  <!-- 使用 v-on 指令綁定 click 事件，點擊時觸發 tempProduct 的賦值 -->
                   <button type="button" class="btn btn-primary" v-on:click="tempProduct = item">查看細節</button>
                 </td>
               </tr>
@@ -71,8 +63,11 @@
         </div>
         <div class="col-md-6">
           <h2>單一產品細節</h2>
+          <!-- 使用 v-if 和 v-else 進行條件渲染 -->
           <div v-if="tempProduct.title">
+            <!-- 顯示選定產品的詳細資訊 -->
             <div class="card mb-3">
+              <!-- 使用 v-bind 綁定圖片的 src 屬性 -->
               <img v-bind:src="tempProduct.imageUrl" class="card-img-top primary-image" alt="主圖">
               <div class="card-body">
                 <h5 class="card-title">
@@ -88,10 +83,13 @@
                 </div>
               </div>
             </div>
+            <!-- 使用 v-for 動態建立 tempProduct.imagesUrl 陣列中的每個圖片 -->
             <span v-for="(image, id) in tempProduct.imagesUrl" v-bind:key="id">
+              <!-- 使用 v-if 進行條件渲染，只有在 image 存在時才顯示圖片 -->
               <img v-if="image" v-bind:src="image" class="images m-2">
             </span>
           </div>
+          <!-- 使用 v-else 進行條件渲染，當 tempProduct.title 不存在時顯示提示文字 -->
           <p v-else class="text-secondary">請選擇一個商品查看</p>
         </div>
       </div>

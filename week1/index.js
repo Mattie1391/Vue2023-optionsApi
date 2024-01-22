@@ -1,8 +1,10 @@
+// 引入 Vue.js 3 中的 createApp 函數
 import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
 
 createApp({
   data() {
     return {
+      // 商品數據陣列
       products: [
         {
           category: "甜甜圈",
@@ -55,7 +57,9 @@ createApp({
           ]
         }
       ],
+      // 暫存當前操作的商品      
       tempProduct: {},
     }
   },
+// 將 Vue 應用程式實例掛載到 HTML 文件中的 id 為 'app' 的元素上  
 }).mount('#app');
