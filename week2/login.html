@@ -49,13 +49,13 @@
           <form class="custom-signin-form" @submit.prevent="login">
             <!-- 登入表單，使用Vue.js事件綁定 -->
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" v-model="userInfo.username" id="floatingInput"
+              <input type="email" class="form-control" v-model="user.username" id="floatingInput"
                 placeholder="name@example.com" required autofocus>
               <!-- 帶有浮動標籤的電子郵件輸入 -->
               <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
-              <input type="password" class="form-control" v-model="userInfo.password" id="floatingPassword"
+              <input type="password" class="form-control" v-model="user.password" id="floatingPassword"
                 placeholder="Password" required>
               <!-- 帶有浮動標籤的密碼輸入 -->
               <label for="floatingPassword">Password</label>
