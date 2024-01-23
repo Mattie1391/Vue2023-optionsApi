@@ -24,7 +24,7 @@
       justify-content: center;
     }
 
-    .custom-signin-form {
+    .form-signin {
       width: 100%;
       max-width: 330px;
       padding: 15px;
@@ -46,7 +46,7 @@
         <!-- 登入表單的標題 -->
         <div class="col-8">
           <!-- Bootstrap列類別，用於響應式設計 -->
-          <form class="custom-signin-form" @submit.prevent="login">
+          <form class="form-signin" @submit.prevent="login">
             <!-- 登入表單，使用Vue.js事件綁定 -->
             <div class="form-floating mb-3">
               <input type="email" class="form-control" v-model="user.username" id="floatingInput"
